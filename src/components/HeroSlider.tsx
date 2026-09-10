@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const Q = "?w=1900&q=80&auto=format&fit=crop&fm=jpg";
 const slides = [
-	"https://loremflickr.com/1600/900/streetwear,fashion?lock=1",
-	"https://loremflickr.com/1600/900/hoodie,model?lock=2",
-	"https://loremflickr.com/1600/900/fashion,clothing?lock=3",
-	"https://loremflickr.com/1600/900/apparel,style?lock=4",
-	"https://loremflickr.com/1600/900/streetwear,outfit?lock=5",
+	`https://images.unsplash.com/photo-1523381294911-8d3cead13475${Q}`,
+	`https://images.unsplash.com/photo-1579572331145-5e53b299c64e${Q}`,
+	`https://images.unsplash.com/photo-1521572163474-6864f9cf17ab${Q}`,
+	`https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc${Q}`,
+	`https://images.unsplash.com/photo-1489987707025-afc232f7ea0f${Q}`,
 ];
 
 export default function HeroSlider() {

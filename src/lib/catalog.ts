@@ -1,4 +1,4 @@
-// Bortsog-маягийн жишээ каталог. Зургууд нь loremflickr-ийн санамсаргүй хувцасны зураг (жишээ).
+// Bortsog-маягийн жишээ каталог. Зургууд нь Unsplash-ийн hoodie / t-shirt эвент зураг (жишээ).
 export type Product = {
   id: string;
   name: string;
@@ -32,9 +32,9 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/hoodie?lock=100",
-      "https://loremflickr.com/800/1000/streetwear?lock=101",
-      "https://loremflickr.com/800/1000/jacket?lock=102"
+      "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1680292783974-a9a336c10366?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 18
   },
@@ -55,10 +55,10 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/tshirt?lock=103",
-      "https://loremflickr.com/800/1000/fashion?lock=104",
-      "https://loremflickr.com/800/1000/apparel?lock=105",
-      "https://loremflickr.com/800/1000/clothing?lock=106"
+      "https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1579572331145-5e53b299c64e?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1685354218016-3899c9ef79ad?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1601063476271-a159c71ab0b3?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 17
   },
@@ -79,9 +79,9 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/sweatshirt?lock=107",
-      "https://loremflickr.com/800/1000/hoodie?lock=108",
-      "https://loremflickr.com/800/1000/streetwear?lock=109"
+      "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1685354217981-26c14a211bf8?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1615397587950-3cbb55f95b77?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 16
   },
@@ -102,10 +102,10 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/jacket?lock=110",
-      "https://loremflickr.com/800/1000/tshirt?lock=111",
-      "https://loremflickr.com/800/1000/fashion?lock=112",
-      "https://loremflickr.com/800/1000/apparel?lock=113"
+      "https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1609873814058-a8928924184a?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1517942420142-6a296f9ee4b1?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1542406775-ade58c52d2e4?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 15
   },
@@ -126,9 +126,9 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/clothing?lock=114",
-      "https://loremflickr.com/800/1000/sweatshirt?lock=115",
-      "https://loremflickr.com/800/1000/hoodie?lock=116"
+      "https://images.unsplash.com/photo-1622567893612-a5345baa5c9a?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1680292783974-a9a336c10366?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 14
   },
@@ -149,9 +149,9 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/streetwear?lock=117",
-      "https://loremflickr.com/800/1000/jacket?lock=118",
-      "https://loremflickr.com/800/1000/tshirt?lock=119"
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1579572331145-5e53b299c64e?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 13
   },
@@ -172,8 +172,8 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/fashion?lock=120",
-      "https://loremflickr.com/800/1000/apparel?lock=121"
+      "https://images.unsplash.com/photo-1685354218016-3899c9ef79ad?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1601063476271-a159c71ab0b3?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 12
   },
@@ -194,9 +194,9 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/clothing?lock=122",
-      "https://loremflickr.com/800/1000/sweatshirt?lock=123",
-      "https://loremflickr.com/800/1000/hoodie?lock=124"
+      "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1685354217981-26c14a211bf8?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1615397587950-3cbb55f95b77?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 10
   },
@@ -217,8 +217,8 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/streetwear?lock=125",
-      "https://loremflickr.com/800/1000/jacket?lock=126"
+      "https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1609873814058-a8928924184a?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 9
   },
@@ -239,9 +239,9 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/tshirt?lock=127",
-      "https://loremflickr.com/800/1000/fashion?lock=128",
-      "https://loremflickr.com/800/1000/apparel?lock=129"
+      "https://images.unsplash.com/photo-1517942420142-6a296f9ee4b1?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1542406775-ade58c52d2e4?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1622567893612-a5345baa5c9a?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 8
   },
@@ -262,9 +262,9 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/clothing?lock=130",
-      "https://loremflickr.com/800/1000/sweatshirt?lock=131",
-      "https://loremflickr.com/800/1000/hoodie?lock=132"
+      "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1680292783974-a9a336c10366?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 7
   },
@@ -285,8 +285,8 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/streetwear?lock=133",
-      "https://loremflickr.com/800/1000/jacket?lock=134"
+      "https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1579572331145-5e53b299c64e?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 6
   },
@@ -307,9 +307,9 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/tshirt?lock=135",
-      "https://loremflickr.com/800/1000/fashion?lock=136",
-      "https://loremflickr.com/800/1000/apparel?lock=137"
+      "https://images.unsplash.com/photo-1685354218016-3899c9ef79ad?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1601063476271-a159c71ab0b3?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 5
   },
@@ -330,8 +330,8 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": true,
     "images": [
-      "https://loremflickr.com/800/1000/clothing?lock=138",
-      "https://loremflickr.com/800/1000/sweatshirt?lock=139"
+      "https://images.unsplash.com/photo-1685354217981-26c14a211bf8?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1615397587950-3cbb55f95b77?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 2
   },
@@ -352,7 +352,7 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": true,
     "images": [
-      "https://loremflickr.com/800/1000/hoodie?lock=140"
+      "https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 1
   },
@@ -374,8 +374,8 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/streetwear?lock=141",
-      "https://loremflickr.com/800/1000/jacket?lock=142"
+      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=1100&q=75&auto=format&fit=crop&fm=jpg",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 14
   },
@@ -396,7 +396,7 @@ export const products: Product[] = [
     "inStock": true,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/tshirt?lock=143"
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 13
   },
@@ -417,7 +417,7 @@ export const products: Product[] = [
     "inStock": false,
     "legacy": false,
     "images": [
-      "https://loremflickr.com/800/1000/fashion?lock=144"
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1100&q=75&auto=format&fit=crop&fm=jpg"
     ],
     "order": 12
   }

@@ -7,7 +7,7 @@
 	--border: #262626;
 	--card: #121212;
 	--accent: #ffffff;
-	--hud: #8a93a6;
+	--hud: #4da3ff;
 	color-scheme: dark;
 }
 
@@ -163,14 +163,14 @@ h6 {
 	overflow: hidden;
 }
 .glitch::before {
-	left: 1px;
-	text-shadow: -1px 0 rgba(255, 255, 255, 0.35);
-	animation: glitch-a 3.4s infinite linear alternate-reverse;
+	left: 2px;
+	text-shadow: -2px 0 #ff2f6d;
+	animation: glitch-a 2.6s infinite linear alternate-reverse;
 }
 .glitch::after {
-	left: -1px;
-	text-shadow: 1px 0 color-mix(in srgb, var(--hud) 70%, transparent);
-	animation: glitch-b 2.8s infinite linear alternate-reverse;
+	left: -2px;
+	text-shadow: -2px 0 var(--hud);
+	animation: glitch-b 2s infinite linear alternate-reverse;
 }
 @keyframes glitch-a {
 	0% { clip-path: inset(0 0 82% 0); }

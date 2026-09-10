@@ -4,14 +4,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/lang";
 
-const Q = "?w=1900&q=80&auto=format&fit=crop&fm=jpg";
-const ambient = [
-	`https://images.unsplash.com/photo-1523381294911-8d3cead13475${Q}`,
-	`https://images.unsplash.com/photo-1579572331145-5e53b299c64e${Q}`,
-	`https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc${Q}`,
-	`https://images.unsplash.com/photo-1489987707025-afc232f7ea0f${Q}`,
-];
-
 const P = "?w=1200&q=85&auto=format&fit=crop&fm=jpg";
 const hoodies = [
 	`https://images.unsplash.com/photo-1680292783974-a9a336c10366${P}`,
@@ -58,7 +50,7 @@ export default function HeroSlider() {
 	const [index, setIndex] = useState(0);
 
 	useEffect(() => {
-		const id = setInterval(() => setIndex((i) => (i + 1) % ambient.length), 5000);
+		const id = setInterval(() => setIndex((i) => (i + 1) % hoodies.length), 5000);
 		return () => clearInterval(id);
 	}, []);
 
@@ -69,65 +61,89 @@ export default function HeroSlider() {
 	];
 
 	return (
-		<section className="hud-scanlines relative min-h-[88vh] w-full overflow-hidden border-b border-border bg-background">
-			{ambient.map((src, i) => (
-				// eslint-disable-next-line @next/next/no-img-element
-				<img
-					key={src}
-					src={src}
-					alt=""
-					aria-hidden
-					className={
-						"absolute inset-0 h-full w-full object-cover grayscale transition-opacity duration-[1500ms] " +
-						(i === index ? "opacity-25" : "opacity-0")
-					}
-				/>
-			))}
-			<div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(10,10,10,0.55)_55%,#0a0a0a_100%)]" />
-			<div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
-			<div className="pointer-events-none absolute inset-x-0 top-0 z-[3] h-24 bg-gradient-to-b from-hud/10 to-transparent hud-sweep" />
+		<section className="hud-scanlines relative overflow-hidden border-b border-border bg-background">
+			<div className="pointer-events-none absolute inset-x-0 top-0 z-[3] h-16 bg-gradient-to-b from-hud/5 to-transparent hud-sweep" />
 
-			{/* centre product — cycles with the slide index */}
-			<div className="pointer-events-none absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2">
-				<div className="relative hud-float">
-					<div className="absolute left-1/2 top-1/2 h-[70vh] w-[70vh] max-w-[92vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-hud/15 blur-[120px]" />
-					<div className="relative h-[58vh] max-h-[560px] w-[42vh] max-w-[92vw]">
+			<div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-24">
+				{/* left — copy */}
+				<div className="flex flex-col justify-center">
+					<div className="mb-4 flex flex-wrap gap-2">
+						<span className="hud-box px-3 py-1.5 font-mono-hud text-[10px] text-muted">
+							{t("ТЭСВЭРТ БҮТЭЭГДСЭН", "ENGINEERED TO ENDURE")}
+						</span>
+						<span className="hud-box px-3 py-1.5 font-mono-hud text-[10px] text-muted">
+							{t("2022 — УЛААНБААТАР", "EST. 2022 — ULAANBAATAR")}
+						</span>
+					</div>
+
+					<div className="font-mono-hud mb-3 text-[10px] text-muted">
+						<span className="text-hud">// </span>
+						<ScrambleText text={t("DROP 001 // ХЯЗГААРЛАГДМАЛ // ДАХИН ГАРАХГҮЙ", "DROP 001 // LIMITED RUN // NO RESTOCK")} />
+					</div>
+
+					<h1 className="font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl">
+						<span className="glitch block" data-text={t("НАРИЙН", "DETAILS")}>
+							{t("НАРИЙН", "DETAILS")}
+						</span>
+						<span className="block">{t("ЗҮЙЛ ЧУХАЛ", "MATTER")}</span>
+					</h1>
+
+					<p className="mt-6 max-w-md text-sm text-muted">
+						{t(
+							"Монголд оёж, хатуу цаг агаарт туршсан. Нарийн зүйл бүр бодож хийгдсэн — хязгаарлагдмал тоо, дахин үйлдвэрлэгдэхгүй.",
+							"Made in Mongolia, tested against hard weather. Every detail is deliberate — limited runs, never restocked.",
+						)}
+					</p>
+
+					<div className="mt-8 flex flex-wrap items-center gap-4">
+						<Link
+							href="/shop"
+							className="font-mono-hud inline-flex items-center gap-3 border border-foreground px-6 py-3 text-xs text-foreground transition-colors hover:bg-foreground hover:text-background"
+						>
+							<span className="text-hud">[</span> {t("ДЭЛГҮҮР ҮЗЭХ", "SHOP NOW")} <span className="text-hud">]</span>
+						</Link>
+						<div className="flex gap-2">
+							{hoodies.map((_, i) => (
+								<button
+									key={i}
+									aria-label={`Slide ${i + 1}`}
+									onClick={() => setIndex(i)}
+									className={
+										"font-mono-hud border px-2 py-0.5 text-[10px] transition-colors " +
+										(i === index ? "border-foreground text-foreground" : "border-border text-muted hover:text-foreground")
+									}
+								>
+									{String(i + 1).padStart(2, "0")}
+								</button>
+							))}
+						</div>
+					</div>
+				</div>
+
+				{/* right — product + specs, kept clear of the copy */}
+				<div className="flex flex-col gap-4">
+					<div className="hud-box relative aspect-4/5 overflow-hidden">
 						{hoodies.map((src, i) => (
 							// eslint-disable-next-line @next/next/no-img-element
 							<img
 								key={src}
 								src={src}
-								alt={t("Bortsog хар hoodie", "Bortsog black hoodie")}
+								alt={t("Bortsog hoodie", "Bortsog hoodie")}
 								className={
-									"absolute inset-0 h-full w-full object-cover drop-shadow-[0_40px_80px_rgba(0,0,0,0.65)] transition-opacity duration-1000 " +
+									"absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 " +
 									(i === index ? "opacity-100" : "opacity-0")
 								}
 							/>
 						))}
-						<div className="hud-box absolute -bottom-3 -right-3 bg-background/90 px-3 py-2">
+						<div className="absolute left-3 top-3 bg-background/85 px-3 py-2">
 							<div className="font-mono-hud text-[9px] text-hud">{t("ХЯЗГААРЛАГДМАЛ ЦУВРАЛ", "LIMITED EDITION")}</div>
 							<div className="font-mono-hud text-[10px] text-foreground">
 								{t("ЗАГВАРЫН HOODIE", "SIGNATURE HOODIE")} · ₮195,500
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div className="relative z-[4] mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-between px-4 py-10 sm:px-6">
-				<div className="flex items-start justify-between gap-4">
-					<div className="hud-box px-3 py-2">
-						<div className="font-mono-hud text-[10px] text-hud">{t("ТЭСВЭРТ БҮТЭЭГДСЭН", "ENGINEERED TO ENDURE")}</div>
-						<div className="font-mono-hud text-[10px] text-muted">{t("2022 ОНООС — УЛААНБААТАР", "EST. 2022 — ULAANBAATAR")}</div>
-					</div>
-					<div className="hud-box hidden px-3 py-2 text-right sm:block">
-						<div className="font-mono-hud text-[10px] text-hud">{t("ЗОРИУЛСАН", "DESIGNED FOR")}</div>
-						<div className="font-mono-hud text-[10px] text-muted">{t("АЛИВАА НӨХЦӨЛД", "ANYTHING")}</div>
-					</div>
-				</div>
-
-				<div className="flex justify-end">
-					<ul className="hud-box hidden w-[280px] divide-y divide-border/70 lg:block">
+					<ul className="hud-box divide-y divide-border/70">
 						{specs.map((s) => (
 							<li key={s.k} className="flex gap-3 px-3 py-2.5">
 								<span className="mt-0.5 h-2 w-2 shrink-0 border border-hud" />
@@ -139,49 +155,10 @@ export default function HeroSlider() {
 						))}
 					</ul>
 				</div>
-
-				<div className="max-w-xl">
-					<div className="font-mono-hud mb-3 text-[10px] text-hud">
-						<ScrambleText text={t("DROP 001 // ХЯЗГААРЛАГДМАЛ // ДАХИН ГАРАХГҮЙ", "DROP 001 // LIMITED RUN // NO RESTOCK")} />
-					</div>
-					<h1 className="font-display text-6xl font-extrabold uppercase leading-[0.86] tracking-tight sm:text-8xl">
-						<span className="glitch block" data-text={t("НАРИЙН", "DETAILS")}>
-							{t("НАРИЙН", "DETAILS")}
-						</span>
-						<span className="block text-hud">{t("ЗҮЙЛ ЧУХАЛ", "MATTER")}</span>
-					</h1>
-					<p className="mt-5 max-w-md text-sm text-muted">
-						{t(
-							"Монголд оёж, хатуу цаг агаарт туршсан. Нарийн зүйл бүр бодож хийгдсэн — хязгаарлагдмал тоо, дахин үйлдвэрлэгдэхгүй.",
-							"Made in Mongolia, tested against hard weather. Every detail is deliberate — limited runs, never restocked.",
-						)}
-					</p>
-					<Link
-						href="/shop"
-						className="font-mono-hud mt-6 inline-flex items-center gap-3 border border-foreground px-6 py-3 text-xs text-foreground transition-colors hover:bg-foreground hover:text-background"
-					>
-						<span className="text-hud">[</span> {t("ДЭЛГҮҮР ҮЗЭХ", "SHOP NOW")} <span className="text-hud">]</span>
-					</Link>
-				</div>
 			</div>
 
-			<div className="absolute bottom-14 left-1/2 z-[4] flex -translate-x-1/2 gap-2">
-				{ambient.map((_, i) => (
-					<button
-						key={i}
-						aria-label={`Slide ${i + 1}`}
-						onClick={() => setIndex(i)}
-						className={
-							"font-mono-hud border px-2 py-0.5 text-[10px] transition-colors " +
-							(i === index ? "border-hud text-hud" : "border-border text-muted hover:text-foreground")
-						}
-					>
-						{String(i + 1).padStart(2, "0")}
-					</button>
-				))}
-			</div>
-
-			<div className="absolute inset-x-0 bottom-0 z-[4] overflow-hidden border-t border-border bg-background/80 py-2">
+			{/* ticker */}
+			<div className="overflow-hidden border-t border-border bg-card/40 py-2">
 				<div className="hud-marquee flex w-max whitespace-nowrap">
 					{[0, 1].map((r) => (
 						<span key={r} className="font-mono-hud flex text-[10px] text-muted">

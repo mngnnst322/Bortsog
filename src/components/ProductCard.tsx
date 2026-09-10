@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { formatMNT, type Product } from "@/lib/catalog";
+import { useLang } from "@/lib/lang";
 
 export default function ProductCard({ product }: { product: Product }) {
+	const { t } = useLang();
 	return (
 		<Link href={`/products/${product.id}`} className="group block">
 			<div className="relative aspect-4/5 overflow-hidden rounded-lg bg-card">
@@ -14,7 +18,7 @@ export default function ProductCard({ product }: { product: Product }) {
 				/>
 				{!product.inStock && (
 					<span className="absolute left-3 top-3 rounded bg-background/80 px-2 py-1 text-xs text-muted">
-						{product.legacy ? "Дахин гарахгүй" : "Дууссан"}
+						{product.legacy ? t("Дахин гарахгүй", "No restock") : t("Дууссан", "Sold out")}
 					</span>
 				)}
 			</div>

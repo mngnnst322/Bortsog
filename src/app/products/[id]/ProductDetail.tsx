@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { formatMNT, type Product } from "@/lib/catalog";
 import { useCart } from "@/lib/cart";
+import { useLang } from "@/lib/lang";
 
 export default function ProductDetail({ product }: { product: Product }) {
 	const { add } = useCart();
+	const { t } = useLang();
 	const [activeImage, setActiveImage] = useState(0);
 	const [size, setSize] = useState(product.sizes[0] ?? "");
 	const [color, setColor] = useState(product.colors[0] ?? "");
@@ -20,6 +22,10 @@ export default function ProductDetail({ product }: { product: Product }) {
 	}
 
 	return (
+		<>
+		<Link href="/shop" className="text-sm text-muted hover:text-foreground">
+			← {t("Дэлгүүр рүү буцах", "Back to shop")}
+		</Link>
 		<div className="mt-6 grid gap-10 md:grid-cols-2">
 			<div>
 				<div className="aspect-4/5 overflow-hidden rounded-lg bg-card">
@@ -53,15 +59,17 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				<div className="mt-3 text-sm">
 					{product.inStock ? (
-						<span className="text-emerald-400">Бэлэн байгаа</span>
+						<span className="text-emerald-400">{t("Бэлэн байгаа", "In stock")}</span>
 					) : (
-						<span className="text-muted">{product.legacy ? "Дахин гарахгүй" : "Одоогоор дууссан"}</span>
+						<span className="text-muted">
+							{product.legacy ? t("Дахин гарахгүй", "No restock") : t("Одоогоор дууссан", "Currently sold out")}
+						</span>
 					)}
 				</div>
 
 				{product.colors.length > 0 && (
 					<div className="mt-6">
-						<div className="mb-2 text-sm font-medium">Өнгө</div>
+						<div className="mb-2 text-sm font-medium">{t("Өнгө", "Colour")}</div>
 						<div className="flex flex-wrap gap-2">
 							{product.colors.map((c) => (
 								<button
@@ -81,7 +89,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.sizes.length > 0 && (
 					<div className="mt-5">
-						<div className="mb-2 text-sm font-medium">Хэмжээ</div>
+						<div className="mb-2 text-sm font-medium">{t("Хэмжээ", "Size")}</div>
 						<div className="flex flex-wrap gap-2">
 							{product.sizes.map((s) => (
 								<button
@@ -104,23 +112,31 @@ export default function ProductDetail({ product }: { product: Product }) {
 					disabled={!product.inStock}
 					className="mt-8 w-full rounded-full bg-foreground py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
 				>
-					{!product.inStock ? "Дууссан" : added ? "Сагсанд нэмэгдлээ ✓" : "Сагсанд нэмэх"}
+					{!product.inStock
+						? t("Дууссан", "Sold out")
+						: added
+							? t("Сагсанд нэмэгдлээ ✓", "Added to cart ✓")
+							: t("Сагсанд нэмэх", "Add to cart")}
 				</button>
 				<Link href="/cart" className="mt-3 block text-center text-sm text-muted hover:text-foreground">
-					Сагс руу очих →
+					{t("Сагс руу очих", "Go to cart")} →
 				</Link>
 
 				{product.description && product.description !== "." && (
 					<div className="mt-8 border-t border-border pt-6">
-						<div className="mb-2 text-sm font-medium">Тайлбар</div>
+						<div className="mb-2 text-sm font-medium">{t("Тайлбар", "Details")}</div>
 						<p className="whitespace-pre-line text-sm text-muted">{product.description}</p>
 					</div>
 				)}
 
 				<div className="mt-6 text-xs text-muted">
-					A бүс дотор хүргэлт 10,000₮ · A бүсээс гадна 15,000₮ · захиалгыг 24 цагийн дотор хүргэнэ.
+					{t(
+						"A бүс дотор хүргэлт 10,000₮ · A бүсээс гадна 15,000₮ · захиалгыг 24 цагийн дотор хүргэнэ.",
+						"Delivery ₮10,000 in zone A · ₮15,000 outside · orders delivered within 24 hours.",
+					)}
 				</div>
 			</div>
 		</div>
+		</>
 	);
 }

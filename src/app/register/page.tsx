@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useLang } from "@/lib/lang";
 
 export default function RegisterPage() {
+	const { t } = useLang();
 	const [form, setForm] = useState({ name: "", email: "", password: "" });
 	const [note, setNote] = useState<string | null>(null);
 
@@ -14,10 +16,10 @@ export default function RegisterPage() {
 	function onSubmit(e: React.FormEvent) {
 		e.preventDefault();
 		if (!form.name || !form.email || !form.password) {
-			setNote("Бүх талбарыг бөглөнө үү.");
+			setNote(t("Бүх талбарыг бөглөнө үү.", "Fill in all the fields."));
 			return;
 		}
-		setNote("Энэ нь жишээ сайт тул бүртгэл идэвхгүй байна.");
+		setNote(t("Энэ нь жишээ сайт тул бүртгэл идэвхгүй байна.", "This is a sample site, so sign-up is disabled."));
 	}
 
 	const label = "mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted";
@@ -27,24 +29,24 @@ export default function RegisterPage() {
 	return (
 		<div className="mx-auto flex max-w-md flex-col px-4 py-16 sm:px-6">
 			<div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-				<h1 className="font-display text-3xl font-bold tracking-tight">Бүртгүүлэх</h1>
+				<h1 className="font-display text-3xl font-bold tracking-tight">{t("Бүртгүүлэх", "Sign up")}</h1>
 
 				<form onSubmit={onSubmit} className="mt-8 space-y-5">
 					<div>
 						<label htmlFor="name" className={label}>
-							Нэр
+							{t("Нэр", "Name")}
 						</label>
 						<input id="name" value={form.name} onChange={set("name")} className={input} />
 					</div>
 					<div>
 						<label htmlFor="email" className={label}>
-							И-мэйл
+							{t("И-мэйл", "Email")}
 						</label>
 						<input id="email" type="email" autoComplete="email" value={form.email} onChange={set("email")} className={input} />
 					</div>
 					<div>
 						<label htmlFor="password" className={label}>
-							Нууц үг
+							{t("Нууц үг", "Password")}
 						</label>
 						<input
 							id="password"
@@ -60,16 +62,16 @@ export default function RegisterPage() {
 						type="submit"
 						className="w-full rounded-md bg-foreground py-3 text-sm font-semibold uppercase tracking-[0.15em] text-background transition-opacity hover:opacity-90"
 					>
-						Бүртгүүлэх
+						{t("Бүртгүүлэх", "Sign up")}
 					</button>
 
 					{note && <p className="text-center text-xs text-muted">{note}</p>}
 				</form>
 
 				<p className="mt-7 text-center text-xs font-semibold uppercase tracking-[0.15em] text-muted">
-					Бүртгэлтэй юу?{" "}
+					{t("Бүртгэлтэй юу?", "Already have an account?")}{" "}
 					<Link href="/login" className="text-foreground hover:underline">
-						Нэвтрэх
+						{t("Нэвтрэх", "Sign in")}
 					</Link>
 				</p>
 			</div>

@@ -42,6 +42,7 @@ export default function Header() {
 	const nav = [
 		{ href: "/shop", label: t("Дэлгүүр", "Shop") },
 		{ href: "/about", label: t("Бидний тухай", "About") },
+		{ href: "/wishlist", label: t("Хүслийн жагсаалт", "Wishlist") },
 	];
 
 	return (

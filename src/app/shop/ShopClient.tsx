@@ -4,19 +4,23 @@ import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { categories, products } from "@/lib/catalog";
+import { useLang } from "@/lib/lang";
 
 type Sort = "new" | "old" | "price-asc" | "price-desc";
 
-const sortLabels: Record<Sort, string> = {
-	new: "Шинээс хуучин",
-	old: "Хуучнаас шинэ",
-	"price-asc": "Үнэ: багаас их",
-	"price-desc": "Үнэ: ихээс бага",
-};
+const ALL = "БҮГД";
 
 export default function ShopClient() {
+	const { t } = useLang();
 	const params = useSearchParams();
-	const initialCategory = params.get("category") ?? "БҮГД";
+	const initialCategory = params.get("category") ?? ALL;
+
+	const sortLabels: Record<Sort, string> = {
+		new: t("Шинээс хуучин", "Newest first"),
+		old: t("Хуучнаас шинэ", "Oldest first"),
+		"price-asc": t("Үнэ: багаас их", "Price: low to high"),
+		"price-desc": t("Үнэ: ихээс бага", "Price: high to low"),
+	};
 
 	const [category, setCategory] = useState<string>(initialCategory);
 	const [sort, setSort] = useState<Sort>("new");
@@ -24,7 +28,7 @@ export default function ShopClient() {
 
 	const list = useMemo(() => {
 		let out = products.slice();
-		if (category !== "БҮГД") out = out.filter((p) => p.category === category);
+		if (category !== ALL) out = out.filter((p) => p.category === category);
 		if (inStockOnly) out = out.filter((p) => p.inStock);
 		out.sort((a, b) => {
 			switch (sort) {
@@ -43,11 +47,11 @@ export default function ShopClient() {
 
 	return (
 		<div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-			<h1 className="mb-6 font-display text-3xl font-bold">Бүх бараа</h1>
+			<h1 className="mb-6 font-display text-3xl font-bold">{t("Бүх бараа", "All products")}</h1>
 
 			<div className="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-center sm:justify-between">
 				<div className="inline-flex max-w-full items-center gap-1 self-start overflow-x-auto rounded-2xl border border-border bg-card p-1.5">
-					{["БҮГД", ...categories].map((c) => {
+					{[ALL, ...categories].map((c) => {
 						const active = category === c;
 						return (
 							<button
@@ -61,7 +65,7 @@ export default function ShopClient() {
 								}
 							>
 								<span className={active ? "border-b-2 border-foreground pb-0.5 font-semibold" : "font-medium"}>
-									{c}
+									{c === ALL ? t("БҮГД", "ALL") : c}
 								</span>
 							</button>
 						);
@@ -76,7 +80,7 @@ export default function ShopClient() {
 							onChange={(e) => setInStockOnly(e.target.checked)}
 							className="accent-white"
 						/>
-						Зөвхөн бэлэн
+						{t("Зөвхөн бэлэн", "In stock only")}
 					</label>
 					<select
 						value={sort}
@@ -92,10 +96,14 @@ export default function ShopClient() {
 				</div>
 			</div>
 
-			<p className="mb-6 text-sm text-muted">Нийт {list.length} бараа</p>
+			<p className="mb-6 text-sm text-muted">
+				{t(`Нийт ${list.length} бараа`, `${list.length} products`)}
+			</p>
 
 			{list.length === 0 ? (
-				<p className="py-16 text-center text-sm text-muted">Энэ ангилалд бараа хараахан алга байна.</p>
+				<p className="py-16 text-center text-sm text-muted">
+					{t("Энэ ангилалд бараа хараахан алга байна.", "Nothing in this category yet.")}
+				</p>
 			) : (
 				<div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4">
 					{list.map((p) => (

@@ -2,20 +2,24 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useLang } from "@/lib/lang";
 
 export default function LoginPage() {
+	const { t } = useLang();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [show, setShow] = useState(false);
 	const [note, setNote] = useState<string | null>(null);
 
+	const DISABLED = t("Энэ нь жишээ сайт тул нэвтрэлт идэвхгүй байна.", "This is a sample site, so sign-in is disabled.");
+
 	function onSubmit(e: React.FormEvent) {
 		e.preventDefault();
 		if (!email || !password) {
-			setNote("И-мэйл болон нууц үгээ оруулна уу.");
+			setNote(t("И-мэйл болон нууц үгээ оруулна уу.", "Enter your email and password."));
 			return;
 		}
-		setNote("Энэ нь жишээ сайт тул нэвтрэлт идэвхгүй байна.");
+		setNote(DISABLED);
 	}
 
 	const label = "mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted";
@@ -25,12 +29,12 @@ export default function LoginPage() {
 	return (
 		<div className="mx-auto flex max-w-md flex-col px-4 py-16 sm:px-6">
 			<div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-				<h1 className="font-display text-3xl font-bold tracking-tight">Нэвтрэх</h1>
+				<h1 className="font-display text-3xl font-bold tracking-tight">{t("Нэвтрэх", "Sign in")}</h1>
 
 				<form onSubmit={onSubmit} className="mt-8 space-y-5">
 					<div>
 						<label htmlFor="email" className={label}>
-							И-мэйл
+							{t("И-мэйл", "Email")}
 						</label>
 						<input
 							id="email"
@@ -44,7 +48,7 @@ export default function LoginPage() {
 
 					<div>
 						<label htmlFor="password" className={label}>
-							Нууц үг
+							{t("Нууц үг", "Password")}
 						</label>
 						<div className="flex gap-2">
 							<input
@@ -60,7 +64,7 @@ export default function LoginPage() {
 								onClick={() => setShow((v) => !v)}
 								className="shrink-0 rounded-md border border-border px-4 text-xs font-semibold uppercase tracking-[0.15em] text-muted transition-colors hover:text-foreground"
 							>
-								{show ? "Нуух" : "Харах"}
+								{show ? t("Нуух", "Hide") : t("Харах", "Show")}
 							</button>
 						</div>
 					</div>
@@ -69,7 +73,7 @@ export default function LoginPage() {
 						type="submit"
 						className="w-full rounded-md bg-foreground py-3 text-sm font-semibold uppercase tracking-[0.15em] text-background transition-opacity hover:opacity-90"
 					>
-						Код авах
+						{t("Код авах", "Get code")}
 					</button>
 
 					{note && <p className="text-center text-xs text-muted">{note}</p>}
@@ -79,20 +83,20 @@ export default function LoginPage() {
 							href="/login"
 							className="text-xs font-semibold uppercase tracking-[0.15em] text-muted hover:text-foreground"
 						>
-							Нууц үгээ мартсан уу?
+							{t("Нууц үгээ мартсан уу?", "Forgot your password?")}
 						</Link>
 					</p>
 				</form>
 
 				<div className="my-7 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
 					<span className="h-px flex-1 bg-border" />
-					Эсвэл Google-ээр
+					{t("Эсвэл Google-ээр", "Or with Google")}
 					<span className="h-px flex-1 bg-border" />
 				</div>
 
 				<button
 					type="button"
-					onClick={() => setNote("Энэ нь жишээ сайт тул нэвтрэлт идэвхгүй байна.")}
+					onClick={() => setNote(DISABLED)}
 					className="flex w-full items-center justify-center gap-3 rounded-md border border-border bg-background py-3 text-sm font-medium transition-colors hover:border-foreground"
 				>
 					<svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4">
@@ -102,9 +106,9 @@ export default function LoginPage() {
 				</button>
 
 				<p className="mt-7 text-center text-xs font-semibold uppercase tracking-[0.15em] text-muted">
-					Бүртгэлгүй юу?{" "}
+					{t("Бүртгэлгүй юу?", "No account?")}{" "}
 					<Link href="/register" className="text-foreground hover:underline">
-						Бүртгүүлэх
+						{t("Бүртгүүлэх", "Sign up")}
 					</Link>
 				</p>
 			</div>

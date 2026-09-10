@@ -3,22 +3,24 @@
 import Link from "next/link";
 import { getProduct } from "@/lib/catalog";
 import { formatMNT, useCart } from "@/lib/cart";
+import { useLang } from "@/lib/lang";
 
 const DELIVERY = 10000;
 
 export default function CartPage() {
 	const { items, subtotal, setQty, remove, clear } = useCart();
+	const { t } = useLang();
 
 	if (items.length === 0) {
 		return (
 			<div className="mx-auto max-w-6xl px-4 py-24 text-center sm:px-6">
-				<h1 className="font-display text-2xl font-bold">Сагс хоосон байна</h1>
-				<p className="mt-2 text-sm text-muted">Дэлгүүрээс бараа сонгож эхлээрэй.</p>
+				<h1 className="font-display text-2xl font-bold">{t("Сагс хоосон байна", "Your cart is empty")}</h1>
+				<p className="mt-2 text-sm text-muted">{t("Дэлгүүрээс бараа сонгож эхлээрэй.", "Start by picking something from the shop.")}</p>
 				<Link
 					href="/shop"
 					className="mt-6 inline-block rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background"
 				>
-					Дэлгүүр рүү очих
+					{t("Дэлгүүр рүү очих", "Go to shop")}
 				</Link>
 			</div>
 		);
@@ -27,9 +29,9 @@ export default function CartPage() {
 	return (
 		<div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
 			<div className="mb-8 flex items-center justify-between">
-				<h1 className="font-display text-3xl font-bold">Сагс</h1>
+				<h1 className="font-display text-3xl font-bold">{t("Сагс", "Cart")}</h1>
 				<button onClick={clear} className="text-sm text-muted hover:text-foreground">
-					Сагс цэвэрлэх
+					{t("Сагс цэвэрлэх", "Clear cart")}
 				</button>
 			</div>
 
@@ -76,7 +78,7 @@ export default function CartPage() {
 											onClick={() => remove(it.id, it.size, it.color)}
 											className="text-xs text-muted hover:text-foreground"
 										>
-											Устгах
+											{t("Устгах", "Remove")}
 										</button>
 									</div>
 								</div>
@@ -86,26 +88,29 @@ export default function CartPage() {
 				</div>
 
 				<div className="h-max rounded-lg border border-border bg-card p-6">
-					<h2 className="font-display text-lg font-bold">Захиалгын дүн</h2>
+					<h2 className="font-display text-lg font-bold">{t("Захиалгын дүн", "Order summary")}</h2>
 					<div className="mt-4 space-y-2 text-sm">
 						<div className="flex justify-between">
-							<span className="text-muted">Барааны дүн</span>
+							<span className="text-muted">{t("Барааны дүн", "Subtotal")}</span>
 							<span>{formatMNT(subtotal)}</span>
 						</div>
 						<div className="flex justify-between">
-							<span className="text-muted">Хүргэлт (A бүс)</span>
+							<span className="text-muted">{t("Хүргэлт (A бүс)", "Delivery (zone A)")}</span>
 							<span>{formatMNT(DELIVERY)}</span>
 						</div>
 						<div className="mt-3 flex justify-between border-t border-border pt-3 text-base font-semibold">
-							<span>Нийт</span>
+							<span>{t("Нийт", "Total")}</span>
 							<span>{formatMNT(subtotal + DELIVERY)}</span>
 						</div>
 					</div>
 					<button className="mt-6 w-full rounded-full bg-foreground py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90">
-						Захиалга баталгаажуулах
+						{t("Захиалга баталгаажуулах", "Place order")}
 					</button>
 					<p className="mt-3 text-xs text-muted">
-						Төлбөрийг QPay-ээр төлнө. Энэ нь жишээ сайт тул бодит төлбөр хийгдэхгүй.
+						{t(
+							"Төлбөрийг QPay-ээр төлнө. Энэ нь жишээ сайт тул бодит төлбөр хийгдэхгүй.",
+							"Payment via QPay. This is a sample site, so no real payment is taken.",
+						)}
 					</p>
 				</div>
 			</div>

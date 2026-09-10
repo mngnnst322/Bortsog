@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const R2 = "https://pub-cc9be6a741434f95bc9c90bba1617d16.r2.dev/sadcream/homepage-slider/";
 const slides = [
-	"aef9fb7c-696a-4121-812e-8b2fd1091199-a6pyib-decf94f1-5382-4734-a63e-068e06e99182-main.webp",
-	"ab7e4804-febf-486d-a37a-518543ceabbb-odozbq-11788398-3304-47f9-9308-2ac2c07f4adb-main.webp",
-	"6fe412fe-ab63-41f3-9b70-e7151a641d3e-znvdld-8fc97eb0-c7e4-4ee7-acea-6590a72ca5e5-main.webp",
-	"6bdcd59e-5078-4b46-9e3c-49991245d47b-zd7ani-1984e05d-25fc-4624-a85e-58c98b15aeda-main.webp",
-	"a7a5b942-cd37-44f5-b36b-2a146870da26-d5d7vo-6ab09196-0180-4c76-a038-36450fc7e986-main.webp",
-].map((f) => R2 + f);
+	"https://loremflickr.com/1600/900/streetwear,fashion?lock=1",
+	"https://loremflickr.com/1600/900/hoodie,model?lock=2",
+	"https://loremflickr.com/1600/900/fashion,clothing?lock=3",
+	"https://loremflickr.com/1600/900/apparel,style?lock=4",
+	"https://loremflickr.com/1600/900/streetwear,outfit?lock=5",
+];
 
 export default function HeroSlider() {
 	const [index, setIndex] = useState(0);

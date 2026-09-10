@@ -85,8 +85,8 @@ export default function HeroSlider() {
 			))}
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_38%,transparent_0%,rgba(10,10,10,0.55)_55%,#0a0a0a_100%)]" />
 			<div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
-			{/* left scrim keeps the headline off the product */}
-			<div className="pointer-events-none absolute inset-y-0 left-0 z-[3] w-[70%] bg-gradient-to-r from-background from-30% via-background/92 to-transparent" />
+			{/* left scrim keeps the headline off the product — desktop only */}
+			<div className="pointer-events-none absolute inset-y-0 left-0 z-[3] hidden w-[70%] bg-gradient-to-r from-background from-30% via-background/92 to-transparent sm:block" />
 			<div className="pointer-events-none absolute inset-x-0 top-0 z-[3] h-24 bg-gradient-to-b from-hud/10 to-transparent hud-sweep" />
 
 			{/* vertical Mongol bichig */}

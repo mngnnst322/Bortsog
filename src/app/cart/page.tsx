@@ -52,7 +52,7 @@ export default function CartPage() {
 											<Link href={`/products/${it.id}`} className="text-sm font-medium hover:underline">
 												{product.name}
 											</Link>
-											<div className="mt-0.5 text-xs text-muted">
+											<div className="mt-0.5 font-mono text-xs text-hud">
 												{it.color} · {it.size}
 											</div>
 										</div>

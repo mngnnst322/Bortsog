@@ -69,7 +69,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.colors.length > 0 && (
 					<div className="mt-6">
-						<div className="mb-2 text-sm font-medium">{t("Өнгө", "Colour")}</div>
+						<div className="mb-2 font-mono text-xs uppercase tracking-widest text-hud">// {t("Өнгө", "Colour")}</div>
 						<div className="flex flex-wrap gap-2">
 							{product.colors.map((c) => (
 								<button
@@ -89,7 +89,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.sizes.length > 0 && (
 					<div className="mt-5">
-						<div className="mb-2 text-sm font-medium">{t("Хэмжээ", "Size")}</div>
+						<div className="mb-2 font-mono text-xs uppercase tracking-widest text-hud">// {t("Хэмжээ", "Size")}</div>
 						<div className="flex flex-wrap gap-2">
 							{product.sizes.map((s) => (
 								<button

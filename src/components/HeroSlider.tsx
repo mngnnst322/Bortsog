@@ -124,7 +124,7 @@ export default function HeroSlider() {
 				</div>
 			</div>
 
-			<div className="relative z-[4] mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-between px-4 py-10 sm:px-6">
+			<div className="relative z-[4] mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-between gap-10 px-4 pb-20 pt-10 sm:px-6">
 				<div className="flex items-start justify-between gap-4">
 					<div className="hud-box px-3 py-2">
 						<div className="font-mono-hud text-[10px] text-hud">{t("ТЭСВЭРТ БҮТЭЭГДСЭН", "ENGINEERED TO ENDURE")}</div>
@@ -166,34 +166,35 @@ export default function HeroSlider() {
 							"Made in Mongolia, tested against hard weather. Every detail is deliberate — limited runs, never restocked.",
 						)}
 					</p>
-					<Link
-						href="/shop"
-						className="group font-mono-hud relative mt-6 inline-flex items-center gap-3 overflow-hidden border border-hud px-6 py-3 text-xs text-foreground transition-colors hover:text-background"
-					>
-						<span className="absolute inset-0 origin-left scale-x-0 bg-hud transition-transform duration-300 ease-out group-hover:scale-x-100" />
-						<span className="relative z-10 flex items-center gap-3">
-							<span className="text-hud transition-colors group-hover:text-background">[</span>
-							{t("ДЭЛГҮҮР ҮЗЭХ", "SHOP NOW")}
-							<span className="text-hud transition-colors group-hover:text-background">]</span>
-						</span>
-					</Link>
+					<div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6">
+						<Link
+							href="/shop"
+							className="group font-mono-hud relative inline-flex items-center gap-3 self-start overflow-hidden border border-hud px-6 py-3 text-xs text-foreground transition-colors hover:text-background"
+						>
+							<span className="absolute inset-0 origin-left scale-x-0 bg-hud transition-transform duration-300 ease-out group-hover:scale-x-100" />
+							<span className="relative z-10 flex items-center gap-3">
+								<span className="text-hud transition-colors group-hover:text-background">[</span>
+								{t("ДЭЛГҮҮР ҮЗЭХ", "SHOP NOW")}
+								<span className="text-hud transition-colors group-hover:text-background">]</span>
+							</span>
+						</Link>
+						<div className="flex gap-2">
+							{ambient.map((_, i) => (
+								<button
+									key={i}
+									aria-label={`Slide ${i + 1}`}
+									onClick={() => setIndex(i)}
+									className={
+										"font-mono-hud border px-2 py-1 text-[10px] transition-colors " +
+										(i === index ? "border-hud text-hud" : "border-border text-muted hover:text-foreground")
+									}
+								>
+									{String(i + 1).padStart(2, "0")}
+								</button>
+							))}
+						</div>
+					</div>
 				</div>
-			</div>
-
-			<div className="absolute bottom-14 left-1/2 z-[4] flex -translate-x-1/2 gap-2">
-				{ambient.map((_, i) => (
-					<button
-						key={i}
-						aria-label={`Slide ${i + 1}`}
-						onClick={() => setIndex(i)}
-						className={
-							"font-mono-hud border px-2 py-0.5 text-[10px] transition-colors " +
-							(i === index ? "border-hud text-hud" : "border-border text-muted hover:text-foreground")
-						}
-					>
-						{String(i + 1).padStart(2, "0")}
-					</button>
-				))}
 			</div>
 
 			<div className="absolute inset-x-0 bottom-0 z-[4] overflow-hidden border-t border-border bg-background/80 py-2">

@@ -76,8 +76,8 @@ export default function ProductDetail({ product }: { product: Product }) {
 									key={c}
 									onClick={() => setColor(c)}
 									className={
-										"rounded-full border px-3 py-1.5 text-sm " +
-										(color === c ? "border-hud text-hud" : "border-border text-muted")
+										"rounded-full border px-3 py-1.5 text-sm font-mono transition-colors " +
+										(color === c ? "border-hud bg-hud/10 text-hud" : "border-hud/40 text-hud/80 hover:border-hud")
 									}
 								>
 									{c}
@@ -96,8 +96,8 @@ export default function ProductDetail({ product }: { product: Product }) {
 									key={s}
 									onClick={() => setSize(s)}
 									className={
-										"rounded-md border px-3 py-2 text-sm " +
-										(size === s ? "border-hud text-hud" : "border-border text-muted")
+										"rounded-md border px-3 py-2 text-sm font-mono transition-colors " +
+										(size === s ? "border-hud bg-hud/10 text-hud" : "border-hud/40 text-hud/80 hover:border-hud")
 									}
 								>
 									{s}
@@ -129,7 +129,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 					</div>
 				)}
 
-				<div className="mt-6 text-xs text-muted">
+				<div className="mt-6 font-mono text-xs text-hud/75">
 					{t(
 						"A бүс дотор хүргэлт 10,000₮ · A бүсээс гадна 15,000₮ · захиалгыг 24 цагийн дотор хүргэнэ.",
 						"Delivery ₮10,000 in zone A · ₮15,000 outside · orders delivered within 24 hours.",

@@ -28,7 +28,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 		</Link>
 		<div className="mt-6 grid gap-10 md:grid-cols-2">
 			<div>
-				<div className="hud-box aspect-4/5 overflow-hidden bg-card">
+				<div className="aspect-4/5 overflow-hidden rounded-lg bg-card">
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img src={product.images[activeImage]} alt={product.name} className="h-full w-full object-cover" />
 				</div>
@@ -40,7 +40,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 								onClick={() => setActiveImage(i)}
 								className={
 									"h-20 w-16 overflow-hidden rounded border " +
-									(i === activeImage ? "border-hud" : "border-border")
+									(i === activeImage ? "border-foreground" : "border-border")
 								}
 							>
 								{/* eslint-disable-next-line @next/next/no-img-element */}
@@ -52,14 +52,14 @@ export default function ProductDetail({ product }: { product: Product }) {
 			</div>
 
 			<div>
-				<div className="font-mono text-xs uppercase tracking-widest text-hud">// {product.category}</div>
+				<div className="text-xs uppercase tracking-widest text-muted">{product.category}</div>
 				<h1 className="mt-1 font-display text-3xl font-bold">{product.name}</h1>
-				<div className="mt-1 font-mono text-sm text-hud/75">{product.subtitle}</div>
+				<div className="mt-1 text-sm text-muted">{product.subtitle}</div>
 				<div className="mt-4 font-mono text-xl text-hud">{formatMNT(product.price)}</div>
 
 				<div className="mt-3 text-sm">
 					{product.inStock ? (
-						<span className="text-emerald-400">{t("Бэлэн байгаа", "In stock")}</span>
+						<span className="text-foreground">{t("Бэлэн байгаа", "In stock")}</span>
 					) : (
 						<span className="text-muted">
 							{product.legacy ? t("Дахин гарахгүй", "No restock") : t("Одоогоор дууссан", "Currently sold out")}
@@ -69,15 +69,15 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.colors.length > 0 && (
 					<div className="mt-6">
-						<div className="mb-2 font-mono text-xs uppercase tracking-widest text-hud">// {t("Өнгө", "Colour")}</div>
+						<div className="mb-2 text-sm font-medium">{t("Өнгө", "Colour")}</div>
 						<div className="flex flex-wrap gap-2">
 							{product.colors.map((c) => (
 								<button
 									key={c}
 									onClick={() => setColor(c)}
 									className={
-										"rounded-full border px-3 py-1.5 text-sm font-mono transition-colors " +
-										(color === c ? "border-hud bg-hud/10 text-hud" : "border-hud/40 text-hud/80 hover:border-hud")
+										"rounded-full border px-3 py-1.5 text-sm transition-colors " +
+										(color === c ? "border-foreground" : "border-border text-muted hover:border-foreground")
 									}
 								>
 									{c}
@@ -89,7 +89,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.sizes.length > 0 && (
 					<div className="mt-5">
-						<div className="mb-2 font-mono text-xs uppercase tracking-widest text-hud">// {t("Хэмжээ", "Size")}</div>
+						<div className="mb-2 text-sm font-medium">{t("Хэмжээ", "Size")}</div>
 						<div className="flex flex-wrap gap-2">
 							{product.sizes.map((s) => (
 								<button
@@ -124,12 +124,12 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.description && product.description !== "." && (
 					<div className="mt-8 border-t border-border pt-6">
-						<div className="mb-2 font-mono text-xs uppercase tracking-widest text-hud">// {t("Тайлбар", "Details")}</div>
+						<div className="mb-2 text-sm font-medium">{t("Тайлбар", "Details")}</div>
 						<p className="whitespace-pre-line text-sm text-muted">{product.description}</p>
 					</div>
 				)}
 
-				<div className="mt-6 font-mono text-xs text-hud/75">
+				<div className="mt-6 text-xs text-muted">
 					{t(
 						"A бүс дотор хүргэлт 10,000₮ · A бүсээс гадна 15,000₮ · захиалгыг 24 цагийн дотор хүргэнэ.",
 						"Delivery ₮10,000 in zone A · ₮15,000 outside · orders delivered within 24 hours.",

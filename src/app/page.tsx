@@ -10,15 +10,26 @@ export default function Home() {
 		<>
 			<HeroSlider />
 
-			<section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-				<div className="flex flex-wrap gap-3">
-					{categories.map((c) => (
+			<section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+				<div className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-hud">
+					// Ангилал
+				</div>
+				<div className="grid gap-4 sm:grid-cols-2">
+					{categories.map((c, i) => (
 						<Link
 							key={c}
 							href={`/shop?category=${encodeURIComponent(c)}`}
-							className="rounded-full border border-border px-4 py-2 text-sm text-muted transition-colors hover:border-foreground hover:text-foreground"
+							className="hud-box group flex items-center justify-between px-6 py-8 transition-colors hover:bg-hud/5"
 						>
-							{c}
+							<span className="flex items-baseline gap-4">
+								<span className="font-mono text-sm text-hud">{String(i + 1).padStart(2, "0")}</span>
+								<span className="font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
+									{c}
+								</span>
+							</span>
+							<span className="font-mono text-lg text-muted transition-transform group-hover:translate-x-1 group-hover:text-foreground">
+								→
+							</span>
 						</Link>
 					))}
 				</div>

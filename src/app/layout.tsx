@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
+import { Oxanium, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const tech = Oxanium({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700", "800"],
+	variable: "--font-tech",
+});
+
+const mono = Share_Tech_Mono({
+	subsets: ["latin"],
+	weight: "400",
+	variable: "--font-techmono",
+});
 
 export const metadata: Metadata = {
 	title: "Bortsog — жишээ дэлгүүр",
@@ -15,7 +28,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="mn">
+		<html lang="mn" className={`${tech.variable} ${mono.variable}`}>
 			<body>
 				<CartProvider>
 					<Header />

@@ -8,8 +8,6 @@ import { useCart } from "@/lib/cart";
 const nav = [
 	{ href: "/shop", label: "Дэлгүүр" },
 	{ href: "/about", label: "Бидний тухай" },
-	{ href: "/wishlist", label: "Хүслийн жагсаалт" },
-	{ href: "/cart", label: "Сагс" },
 ];
 
 function IconButton({

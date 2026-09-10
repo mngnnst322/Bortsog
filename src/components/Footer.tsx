@@ -1,18 +1,7 @@
+"use client";
+
 import Link from "next/link";
-
-const menu = [
-	{ href: "/", label: "Нүүр" },
-	{ href: "/shop", label: "Дэлгүүр" },
-	{ href: "/about", label: "Бидний тухай" },
-	{ href: "/cart", label: "Сагс" },
-];
-
-const services = [
-	{ href: "/about", label: "Хүргэлтийн мэдээлэл" },
-	{ href: "/about", label: "Хэмжээний зөвлөгөө" },
-	{ href: "/about", label: "Аюулгүй төлбөр" },
-	{ href: "/about", label: "Захиалгын тусламж" },
-];
+import { useLang } from "@/lib/lang";
 
 function Leaf() {
 	return (
@@ -37,6 +26,22 @@ function Social({ href, label, children }: { href: string; label: string; childr
 }
 
 export default function Footer() {
+	const { t } = useLang();
+
+	const menu = [
+		{ href: "/", label: t("Нүүр", "Home") },
+		{ href: "/shop", label: t("Дэлгүүр", "Shop") },
+		{ href: "/about", label: t("Бидний тухай", "About") },
+		{ href: "/cart", label: t("Сагс", "Cart") },
+	];
+
+	const services = [
+		{ href: "/about", label: t("Хүргэлтийн мэдээлэл", "Delivery info") },
+		{ href: "/about", label: t("Хэмжээний зөвлөгөө", "Size guide") },
+		{ href: "/about", label: t("Аюулгүй төлбөр", "Secure payment") },
+		{ href: "/about", label: t("Захиалгын тусламж", "Order support") },
+	];
+
 	return (
 		<footer className="mt-24 border-t border-border bg-card/40">
 			<div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.6fr_1fr_1fr_1.4fr]">
@@ -67,7 +72,7 @@ export default function Footer() {
 				</div>
 
 				<div className="text-sm">
-					<div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">Цэс</div>
+					<div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">{t("Цэс", "Menu")}</div>
 					<ul className="space-y-2">
 						{menu.map((item) => (
 							<li key={item.label}>
@@ -80,7 +85,7 @@ export default function Footer() {
 				</div>
 
 				<div className="text-sm">
-					<div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">Үйлчилгээ</div>
+					<div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">{t("Үйлчилгээ", "Services")}</div>
 					<ul className="space-y-2">
 						{services.map((item) => (
 							<li key={item.label}>
@@ -93,9 +98,9 @@ export default function Footer() {
 				</div>
 
 				<div className="text-sm">
-					<div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">Холбоо барих</div>
+					<div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">{t("Холбоо барих", "Contact")}</div>
 					<ul className="space-y-3 text-muted">
-						<li>Даваа – Ням / 12:00 – 20:00</li>
+						<li>{t("Даваа – Ням / 12:00 – 20:00", "Mon – Sun / 12:00 – 20:00")}</li>
 						<li className="flex items-center gap-2">
 							<svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.8">
 								<path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3A2 2 0 0 1 23 22 19 19 0 0 1 2 5a2 2 0 0 1 4.6-2Z" />
@@ -115,7 +120,10 @@ export default function Footer() {
 								<path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z" />
 								<circle cx="12" cy="10" r="2.5" />
 							</svg>
-							Сүхбаатар дүүрэг, 3-р хороо, 45-р байрны зүүн тал
+							{t(
+								"Сүхбаатар дүүрэг, 3-р хороо, 45-р байрны зүүн тал",
+								"Sükhbaatar district, khoroo 3, east side of bldg 45",
+							)}
 						</li>
 					</ul>
 				</div>
@@ -124,7 +132,7 @@ export default function Footer() {
 			<div className="border-t border-border">
 				<div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs uppercase tracking-[0.15em] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
 					<span>© {new Date().getFullYear()} BORTSOG</span>
-					<span>Үндэсний үйлдвэрлэгч брэнд — зөвхөн загварчлалын жишээ</span>
+					<span>{t("Үндэсний үйлдвэрлэгч брэнд — зөвхөн загварчлалын жишээ", "Local maker brand — design sample only")}</span>
 				</div>
 			</div>
 		</footer>

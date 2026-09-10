@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oxanium, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
+import { LangProvider } from "@/lib/lang";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -30,11 +31,13 @@ export default function RootLayout({
 	return (
 		<html lang="mn" className={`${tech.variable} ${mono.variable}`}>
 			<body>
-				<CartProvider>
-					<Header />
-					<main className="min-h-[60vh]">{children}</main>
-					<Footer />
-				</CartProvider>
+				<LangProvider>
+					<CartProvider>
+						<Header />
+						<main className="min-h-[60vh]">{children}</main>
+						<Footer />
+					</CartProvider>
+				</LangProvider>
 			</body>
 		</html>
 	);

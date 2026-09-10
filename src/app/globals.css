@@ -212,7 +212,7 @@ h6 {
 	to { transform: translateX(-50%); }
 }
 .hud-marquee {
-	animation: hud-marquee 22s linear infinite;
+	animation: hud-marquee 48s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

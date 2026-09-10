@@ -122,7 +122,7 @@ export default function AboutContent() {
 
 				<div>
 					<h3 className="font-display text-lg font-bold">{t("Хүргэлт", "Delivery")}</h3>
-					<ul className="mt-2 space-y-1 text-sm text-muted">
+					<ul className="mt-2 space-y-1 font-mono text-sm text-hud/80">
 						<li>{t("A бүс дотор: хүргэлтийн төлбөр 10,000₮", "Zone A: delivery fee ₮10,000")}</li>
 						<li>{t("A бүсээс гадна: хүргэлтийн төлбөр 15,000₮", "Outside zone A: delivery fee ₮15,000")}</li>
 						<li>{t("Захиалгыг 24 цагийн дотор хүргэнэ.", "Orders delivered within 24 hours.")}</li>
@@ -132,7 +132,7 @@ export default function AboutContent() {
 
 				<div>
 					<h3 className="font-display text-lg font-bold">{t("Хэмжээ", "Sizing")}</h3>
-					<ul className="mt-2 space-y-1 text-sm text-muted">
+					<ul className="mt-2 space-y-1 font-mono text-sm text-hud/80">
 						<li>{t("L — (160–175 см)", "L — (160–175 cm)")}</li>
 						<li>{t("XL — (175–190 см)", "XL — (175–190 cm)")}</li>
 						<li>{t("Эрэгтэй, эмэгтэй өмсөж болно.", "Unisex fit.")}</li>

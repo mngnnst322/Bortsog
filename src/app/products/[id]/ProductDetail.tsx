@@ -54,7 +54,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 			<div>
 				<div className="font-mono text-xs uppercase tracking-widest text-hud">// {product.category}</div>
 				<h1 className="mt-1 font-display text-3xl font-bold">{product.name}</h1>
-				<div className="mt-1 text-sm text-muted">{product.subtitle}</div>
+				<div className="mt-1 font-mono text-sm text-hud/75">{product.subtitle}</div>
 				<div className="mt-4 font-mono text-xl text-hud">{formatMNT(product.price)}</div>
 
 				<div className="mt-3 text-sm">

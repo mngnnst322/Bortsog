@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
 			<div className="mt-3">
 				<div className="text-sm font-medium">{product.name}</div>
 				<div className="text-xs text-muted">{product.subtitle}</div>
-				<div className="mt-1 text-sm">{formatMNT(product.price)}</div>
+				<div className="mt-1 font-mono text-sm text-hud">{formatMNT(product.price)}</div>
 			</div>
 		</Link>
 	);

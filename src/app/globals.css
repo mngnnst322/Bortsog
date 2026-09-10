@@ -80,6 +80,12 @@ h6 {
 	text-transform: uppercase;
 }
 
+.mongol-vertical {
+	font-family: var(--font-mongol), "Noto Sans Mongolian", serif;
+	writing-mode: vertical-lr;
+	text-orientation: sideways;
+}
+
 /* scanline + grain overlay */
 .hud-scanlines::before {
 	content: "";

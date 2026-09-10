@@ -60,11 +60,11 @@ export default function ShopClient() {
 								className={
 									"shrink-0 rounded-xl px-5 py-2 text-sm transition-colors " +
 									(active
-										? "border border-white/10 bg-white/[0.04] text-foreground"
+										? "border border-hud/30 bg-hud/10 text-hud"
 										: "border border-transparent text-muted hover:text-foreground")
 								}
 							>
-								<span className={active ? "border-b-2 border-foreground pb-0.5 font-semibold" : "font-medium"}>
+								<span className={active ? "border-b-2 border-hud pb-0.5 font-semibold" : "font-medium"}>
 									{c === ALL ? t("БҮГД", "ALL") : c}
 								</span>
 							</button>

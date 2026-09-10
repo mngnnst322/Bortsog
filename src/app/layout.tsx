@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oxanium, Share_Tech_Mono } from "next/font/google";
+import { Oxanium, Share_Tech_Mono, Noto_Sans_Mongolian } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import { LangProvider } from "@/lib/lang";
@@ -18,6 +18,12 @@ const mono = Share_Tech_Mono({
 	variable: "--font-techmono",
 });
 
+const mongol = Noto_Sans_Mongolian({
+	subsets: ["mongolian"],
+	weight: "400",
+	variable: "--font-mongol",
+});
+
 export const metadata: Metadata = {
 	title: "Bortsog — жишээ дэлгүүр",
 	description: "Bortsog маягийн онлайн хувцасны дэлгүүр (жишээ).",
@@ -29,7 +35,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="mn" className={`${tech.variable} ${mono.variable}`}>
+		<html lang="mn" className={`${tech.variable} ${mono.variable} ${mongol.variable}`}>
 			<body>
 				<LangProvider>
 					<CartProvider>

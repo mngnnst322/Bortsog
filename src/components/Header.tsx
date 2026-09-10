@@ -21,11 +21,11 @@ function IconButton({
 		<Link
 			href={href}
 			aria-label={label}
-			className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-foreground hover:text-foreground"
+			className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-hud hover:text-hud"
 		>
 			{children}
 			{badge != null && badge > 0 && (
-				<span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-foreground px-1 text-[10px] font-semibold text-background">
+				<span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-hud px-1 text-[10px] font-semibold text-background">
 					{badge}
 				</span>
 			)}
@@ -71,7 +71,7 @@ export default function Header() {
 							key={item.href}
 							href={item.href}
 							className={
-								(pathname === item.href ? "text-foreground" : "text-muted") +
+								(pathname === item.href ? "text-hud" : "text-muted") +
 								" transition-colors hover:text-foreground"
 							}
 						>
@@ -84,7 +84,7 @@ export default function Header() {
 					<button
 						onClick={toggle}
 						aria-label={t("Хэл солих", "Switch language")}
-						className="font-mono flex h-10 items-center rounded-full border border-border px-3 text-[11px] uppercase tracking-widest text-muted transition-colors hover:border-foreground hover:text-foreground"
+						className="font-mono flex h-10 items-center rounded-full border border-border px-3 text-[11px] uppercase tracking-widest text-hud transition-colors hover:border-hud"
 					>
 						{lang === "mn" ? "MN" : "EN"}
 					</button>

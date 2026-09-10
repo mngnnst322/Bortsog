@@ -15,7 +15,7 @@ export default function WishlistPage() {
 			</p>
 			<Link
 				href="/shop"
-				className="mt-6 inline-block rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background"
+				className="mt-6 inline-block rounded-full bg-hud px-6 py-3 text-sm font-semibold text-background"
 			>
 				{t("Дэлгүүр рүү очих", "Go to shop")}
 			</Link>

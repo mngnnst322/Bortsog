@@ -71,7 +71,7 @@ export default function LoginPage() {
 
 					<button
 						type="submit"
-						className="w-full rounded-md bg-foreground py-3 text-sm font-semibold uppercase tracking-[0.15em] text-background transition-opacity hover:opacity-90"
+						className="w-full rounded-md bg-hud py-3 text-sm font-semibold uppercase tracking-[0.15em] text-background transition-opacity hover:opacity-90"
 					>
 						{t("Код авах", "Get code")}
 					</button>

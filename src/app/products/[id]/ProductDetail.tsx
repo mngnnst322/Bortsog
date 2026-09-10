@@ -23,12 +23,12 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 	return (
 		<>
-		<Link href="/shop" className="text-sm text-muted hover:text-foreground">
-			← {t("Дэлгүүр рүү буцах", "Back to shop")}
+		<Link href="/shop" className="font-mono text-sm text-muted hover:text-foreground">
+			<span className="text-hud">←</span> {t("Дэлгүүр рүү буцах", "Back to shop")}
 		</Link>
 		<div className="mt-6 grid gap-10 md:grid-cols-2">
 			<div>
-				<div className="aspect-4/5 overflow-hidden rounded-lg bg-card">
+				<div className="hud-box aspect-4/5 overflow-hidden bg-card">
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img src={product.images[activeImage]} alt={product.name} className="h-full w-full object-cover" />
 				</div>
@@ -40,7 +40,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 								onClick={() => setActiveImage(i)}
 								className={
 									"h-20 w-16 overflow-hidden rounded border " +
-									(i === activeImage ? "border-foreground" : "border-border")
+									(i === activeImage ? "border-hud" : "border-border")
 								}
 							>
 								{/* eslint-disable-next-line @next/next/no-img-element */}
@@ -52,10 +52,10 @@ export default function ProductDetail({ product }: { product: Product }) {
 			</div>
 
 			<div>
-				<div className="text-xs uppercase tracking-widest text-muted">{product.category}</div>
+				<div className="font-mono text-xs uppercase tracking-widest text-hud">// {product.category}</div>
 				<h1 className="mt-1 font-display text-3xl font-bold">{product.name}</h1>
 				<div className="mt-1 text-sm text-muted">{product.subtitle}</div>
-				<div className="mt-4 text-xl">{formatMNT(product.price)}</div>
+				<div className="mt-4 font-mono text-xl text-hud">{formatMNT(product.price)}</div>
 
 				<div className="mt-3 text-sm">
 					{product.inStock ? (
@@ -77,7 +77,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 									onClick={() => setColor(c)}
 									className={
 										"rounded-full border px-3 py-1.5 text-sm " +
-										(color === c ? "border-foreground" : "border-border text-muted")
+										(color === c ? "border-hud text-hud" : "border-border text-muted")
 									}
 								>
 									{c}
@@ -97,7 +97,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 									onClick={() => setSize(s)}
 									className={
 										"rounded-md border px-3 py-2 text-sm " +
-										(size === s ? "border-foreground" : "border-border text-muted")
+										(size === s ? "border-hud text-hud" : "border-border text-muted")
 									}
 								>
 									{s}
@@ -110,7 +110,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 				<button
 					onClick={handleAdd}
 					disabled={!product.inStock}
-					className="mt-8 w-full rounded-full bg-foreground py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+					className="mt-8 w-full rounded-full bg-hud py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
 				>
 					{!product.inStock
 						? t("Дууссан", "Sold out")
@@ -124,7 +124,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
 				{product.description && product.description !== "." && (
 					<div className="mt-8 border-t border-border pt-6">
-						<div className="mb-2 text-sm font-medium">{t("Тайлбар", "Details")}</div>
+						<div className="mb-2 font-mono text-xs uppercase tracking-widest text-hud">// {t("Тайлбар", "Details")}</div>
 						<p className="whitespace-pre-line text-sm text-muted">{product.description}</p>
 					</div>
 				)}

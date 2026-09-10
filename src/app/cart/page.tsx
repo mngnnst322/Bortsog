@@ -18,7 +18,7 @@ export default function CartPage() {
 				<p className="mt-2 text-sm text-muted">{t("Дэлгүүрээс бараа сонгож эхлээрэй.", "Start by picking something from the shop.")}</p>
 				<Link
 					href="/shop"
-					className="mt-6 inline-block rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background"
+					className="mt-6 inline-block rounded-full bg-hud px-6 py-3 text-sm font-semibold text-background"
 				>
 					{t("Дэлгүүр рүү очих", "Go to shop")}
 				</Link>
@@ -56,7 +56,7 @@ export default function CartPage() {
 												{it.color} · {it.size}
 											</div>
 										</div>
-										<div className="text-sm">{formatMNT(product.price * it.qty)}</div>
+										<div className="font-mono text-sm text-hud">{formatMNT(product.price * it.qty)}</div>
 									</div>
 									<div className="mt-auto flex items-center justify-between">
 										<div className="flex items-center rounded-md border border-border">
@@ -100,10 +100,10 @@ export default function CartPage() {
 						</div>
 						<div className="mt-3 flex justify-between border-t border-border pt-3 text-base font-semibold">
 							<span>{t("Нийт", "Total")}</span>
-							<span>{formatMNT(subtotal + DELIVERY)}</span>
+							<span className="font-mono text-hud">{formatMNT(subtotal + DELIVERY)}</span>
 						</div>
 					</div>
-					<button className="mt-6 w-full rounded-full bg-foreground py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90">
+					<button className="mt-6 w-full rounded-full bg-hud py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90">
 						{t("Захиалга баталгаажуулах", "Place order")}
 					</button>
 					<p className="mt-3 text-xs text-muted">

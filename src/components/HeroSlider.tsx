@@ -63,7 +63,7 @@ export default function HeroSlider() {
 	}, []);
 
 	const specs = [
-		{ k: t("УС ТҮЛХЭХ ГАДАРГА", "WEATHER-RESISTANT SHELL"), v: t("Салхи, борооноос хамгаална", "Blocks wind and rain") },
+		{ k: t("ТАВ ТУХТАЙ ДОТОР", "BRUSHED INNER LINING"), v: t("Зөөлөн, арьсанд ээлтэй", "Soft against the skin") },
 		{ k: t("ДУЛААН ДАВХАРГА", "THERMAL INSULATION"), v: t("Дулаан барих, хөнгөн жин", "Traps heat, low weight") },
 		{ k: t("БЭХЖҮҮЛСЭН ОЁДОЛ", "REINFORCED STITCH"), v: t("Хөдөлгөөнд зориулсан", "Built for movement") },
 	];
@@ -88,6 +88,14 @@ export default function HeroSlider() {
 			{/* left scrim keeps the headline off the product */}
 			<div className="pointer-events-none absolute inset-y-0 left-0 z-[3] w-[62%] bg-gradient-to-r from-background via-background/85 to-transparent" />
 			<div className="pointer-events-none absolute inset-x-0 top-0 z-[3] h-24 bg-gradient-to-b from-hud/10 to-transparent hud-sweep" />
+
+			{/* vertical Mongol bichig */}
+			<div
+				aria-hidden
+				className="mongol-vertical pointer-events-none absolute left-2 top-1/2 z-[4] hidden -translate-y-1/2 text-2xl leading-none tracking-widest text-hud/50 sm:left-4 sm:block"
+			>
+				ᠮᠣᠩᠭᠣᠯ ᠳᠤ ᠣᠶᠣᠪᠠ
+			</div>
 
 			{/* centre product — cycles with the slide index */}
 			<div className="pointer-events-none absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 lg:left-[58%]">
@@ -160,9 +168,14 @@ export default function HeroSlider() {
 					</p>
 					<Link
 						href="/shop"
-						className="font-mono-hud mt-6 inline-flex items-center gap-3 border border-foreground px-6 py-3 text-xs text-foreground transition-colors hover:bg-foreground hover:text-background"
+						className="group font-mono-hud relative mt-6 inline-flex items-center gap-3 overflow-hidden border border-hud px-6 py-3 text-xs text-foreground transition-colors hover:text-background"
 					>
-						<span className="text-hud">[</span> {t("ДЭЛГҮҮР ҮЗЭХ", "SHOP NOW")} <span className="text-hud">]</span>
+						<span className="absolute inset-0 origin-left scale-x-0 bg-hud transition-transform duration-300 ease-out group-hover:scale-x-100" />
+						<span className="relative z-10 flex items-center gap-3">
+							<span className="text-hud transition-colors group-hover:text-background">[</span>
+							{t("ДЭЛГҮҮР ҮЗЭХ", "SHOP NOW")}
+							<span className="text-hud transition-colors group-hover:text-background">]</span>
+						</span>
 					</Link>
 				</div>
 			</div>
@@ -189,9 +202,9 @@ export default function HeroSlider() {
 						<span key={r} className="font-mono-hud flex text-[10px] text-muted">
 							{Array.from({ length: 6 }).map((_, i) => (
 								<span key={i} className="mx-4 flex items-center gap-4">
-									{t("УС ТҮЛХЭХ", "WEATHER-RESISTANT")} <span className="text-hud">//</span>{" "}
 									{t("МОНГОЛД ОЁСОН", "ENGINEERED IN MONGOLIA")} <span className="text-hud">//</span>{" "}
-									{t("ХЯЗГААРЛАГДМАЛ ЦУВРАЛ", "LIMITED DROP")} <span className="text-hud">//</span>
+									{t("ХЯЗГААРЛАГДМАЛ ЦУВРАЛ", "LIMITED DROP")} <span className="text-hud">//</span>{" "}
+									{t("ДАХИН ГАРАХГҮЙ", "NO RESTOCK")} <span className="text-hud">//</span>
 								</span>
 							))}
 						</span>

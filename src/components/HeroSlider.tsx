@@ -92,9 +92,9 @@ export default function HeroSlider() {
 			{/* vertical Mongol bichig */}
 			<div
 				aria-hidden
-				className="mongol-vertical pointer-events-none absolute left-2 top-1/2 z-[4] hidden -translate-y-1/2 text-2xl leading-none tracking-widest text-hud/50 sm:left-4 sm:block"
+				className="mongol-vertical pointer-events-none absolute left-[100px] top-1/2 z-[4] hidden -translate-y-1/2 text-[34px] leading-none tracking-widest text-hud/50 sm:block"
 			>
-				ᠮᠣᠩᠭᠣᠯ ᠳᠤ ᠣᠶᠣᠪᠠ
+				ᠮᠣᠩᠭᠣᠯ ᠤᠨ ᠨᠢᠭᠤᠴᠠ ᠲᠣᠪᠴᠢᠶᠠᠨ
 			</div>
 
 			{/* centre product — cycles with the slide index */}
